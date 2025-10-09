@@ -7,14 +7,20 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.bloodbank.entities.Donneur</class>
         <class>com.bloodbank.entities.Receveur</class>
+        
+        
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bloodbankdb"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+           <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bloodbankdb"/>
+<property name="javax.persistence.jdbc.user" value="postgres"/>
+<property name="javax.persistence.jdbc.password" value="nada123"/>
+<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+           
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
+        
+        
+        
     </persistence-unit>
 </persistence>
