@@ -1,5 +1,12 @@
 package dao;
 
-public class DonneurDao {
 
+import model.Donneur;
+import java.util.List;
+
+public interface DonneurDao {
+    void save(Donneur donneur);
+    List<Donneur> findAll();
+    Donneur findById(Long id);
+    void delete(Long id);
 }
