@@ -1,6 +1,6 @@
 package model;
 
-public enum EtatReceveur {
+public enum StatutReceveur {
 
 	
 	 EN_ATTENTE,
