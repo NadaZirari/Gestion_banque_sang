@@ -1,7 +1,4 @@
 package service;
-
-
-
 import impl.DonneurDaoImpl;
 import impl.ReceveurDaoImpl;
 import model.*;
@@ -21,25 +18,18 @@ public class MatchingService {
                 .collect(Collectors.toList());
     }
 
-    public boolean estCompatible(String groupeDonneur, String groupeReceveur) {
-        switch (groupeReceveur) {
-            case "AB+":
-                return true; // Receveur universel
-            case "O-":
-                return groupeDonneur.equals("O-"); // Donneur universel
-            case "A+":
-                return groupeDonneur.equals("A+") || groupeDonneur.equals("A-") || groupeDonneur.equals("O+") || groupeDonneur.equals("O-");
-            case "B+":
-                return groupeDonneur.equals("B+") || groupeDonneur.equals("B-") || groupeDonneur.equals("O+") || groupeDonneur.equals("O-");
-            case "A-":
-                return groupeDonneur.equals("A-") || groupeDonneur.equals("O-");
-            case "B-":
-                return groupeDonneur.equals("B-") || groupeDonneur.equals("O-");
-            case "AB-":
-                return groupeDonneur.equals("A-") || groupeDonneur.equals("B-") || groupeDonneur.equals("AB-") || groupeDonneur.equals("O-");
-            default:
-                return false;
-        }
+    public boolean estCompatible(GroupeSanguin donneur, GroupeSanguin receveur) {
+    	 switch (receveur) {
+         case AB_POS:
+             return true; 
+         case O_NEG:
+             return donneur == GroupeSanguin.O_NEG; 
+         case A_POS:
+             return donneur == GroupeSanguin.A_POS || donneur == GroupeSanguin.A_NEG || donneur == GroupeSanguin.O_POS || donneur == GroupeSanguin.O_NEG;
+         
+         default:
+             return false;
+     }
     }
 
     public void associerDonneurReceveur(Donneur donneur, Receveur receveur) {
