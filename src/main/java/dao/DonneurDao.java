@@ -2,6 +2,7 @@ package dao;
 
 
 import model.Donneur;
+
 import java.util.List;
 
 public interface DonneurDao {
@@ -9,4 +10,8 @@ public interface DonneurDao {
     List<Donneur> findAll();
     Donneur findById(Long id);
     void delete(Long id);
+    void update(Donneur donneur);
+    List<Donneur> findAvailableByBloodGroup(String groupeSanguin);
+
+
 }
