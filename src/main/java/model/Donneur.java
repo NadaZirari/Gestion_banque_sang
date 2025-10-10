@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import javax.persistence.*;
 
@@ -113,7 +114,7 @@ public class Donneur {
 		this.groupeSanguin = groupeSanguin;
 	}
 
-	public StatutDisponibilite getStatut() {
+	public StatutDisponibilite getStatutDisponibilite() {
 		return statut;
 	}
 
@@ -129,6 +130,21 @@ public class Donneur {
 		this.receveur = receveur;
 	}
 
-    
-    
+	public boolean isContreIndication() {
+	    
+		
+	    if (dateNaissance == null) return true;
+	    int age = Period.between(dateNaissance, LocalDate.now()).getYears();
+	    if (age < 18) return true; 
+
+	    
+	    if (poids < 50) return true;
+
+	    return false; 
+	}
+
 }
+
+    
+    
+
