@@ -1,4 +1,5 @@
 package model;
+import java.util.stream.Collectors;
 
 import javax.persistence.*;
 import java.util.List;
@@ -118,7 +119,15 @@ public class Receveur {
 		this.donneurs = donneurs;
 	}
     
-    
+
+	public List<Donneur> getDonneursAssocies() {
+	    if (donneurs == null) return List.of(); 
+	    return donneurs.stream()
+	                   .filter(d -> !d.isContreIndication()) 
+	                   .filter(d -> d.getGroupeSanguin() == this.groupeSanguin) 
+	                   .collect(Collectors.toList());
+	}
+
 
    }
 

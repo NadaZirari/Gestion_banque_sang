@@ -21,6 +21,16 @@ public class Donneur {
     private double poids;
     private String sexe;
 
+    
+    
+    // Contre-indications médicales
+    private boolean hepatiteB;
+    private boolean hepatiteC;
+    private boolean vih;
+    private boolean diabeteInsulinoDependant;
+    private boolean grossesse;
+    private boolean allaitement;
+    
     @Enumerated(EnumType.STRING)
     private GroupeSanguin groupeSanguin;
 
@@ -130,20 +140,24 @@ public class Donneur {
 		this.receveur = receveur;
 	}
 
-	public boolean isContreIndication() {
-	    
-		
-	    if (dateNaissance == null) return true;
-	    int age = Period.between(dateNaissance, LocalDate.now()).getYears();
-	    if (age < 18) return true; 
+	 public boolean isContreIndication() {
+	        
+	        if (dateNaissance == null) return true; 
+	        int age = Period.between(dateNaissance, LocalDate.now()).getYears();
+	        if (age < 18 || age > 65) return true; 
 
-	    
-	    if (poids < 50) return true;
+	        
+	        if (poids < 50) return true;
 
-	    return false; 
-	}
+	        
+	        if (hepatiteB || hepatiteC || vih || diabeteInsulinoDependant) return true;
 
-}
+	       
+	        if ("F".equalsIgnoreCase(sexe) && (grossesse || allaitement)) return true;
+
+	        
+	        return false;
+	    }
 
     
     
