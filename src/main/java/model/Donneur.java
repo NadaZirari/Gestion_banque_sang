@@ -117,7 +117,7 @@ public class Donneur {
 		return statut;
 	}
 
-	public void setStatut(StatutDisponibilite statut) {
+	public void setStatutDisponibilite(StatutDisponibilite statut) {
 		this.statut = statut;
 	}
 
@@ -129,7 +129,6 @@ public class Donneur {
 		this.receveur = receveur;
 	}
 
-
-
+    
     
 }
