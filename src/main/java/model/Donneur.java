@@ -124,7 +124,7 @@ public class Donneur {
 		this.groupeSanguin = groupeSanguin;
 	}
 
-	public StatutDisponibilite getStatut() {
+	public StatutDisponibilite getStatutDisponibilite() {
 		return statut;
 	}
 
@@ -161,4 +161,4 @@ public class Donneur {
 
     
     
-}
+
