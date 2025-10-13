@@ -19,18 +19,31 @@ public class MatchingService {
     }
 
     public boolean estCompatible(GroupeSanguin donneur, GroupeSanguin receveur) {
-    	 switch (receveur) {
-         case AB_POS:
-             return true; 
-         case O_NEG:
-             return donneur == GroupeSanguin.O_NEG; 
-         case A_POS:
-             return donneur == GroupeSanguin.A_POS || donneur == GroupeSanguin.A_NEG || donneur == GroupeSanguin.O_POS || donneur == GroupeSanguin.O_NEG;
-         
-         default:
-             return false;
-     }
+        switch (receveur) {
+            case AB_POS:
+                return true; // receveur universel
+            case AB_NEG:
+                return donneur == GroupeSanguin.AB_NEG || donneur == GroupeSanguin.A_NEG
+                        || donneur == GroupeSanguin.B_NEG || donneur == GroupeSanguin.O_NEG;
+            case A_POS:
+                return donneur == GroupeSanguin.A_POS || donneur == GroupeSanguin.A_NEG
+                        || donneur == GroupeSanguin.O_POS || donneur == GroupeSanguin.O_NEG;
+            case A_NEG:
+                return donneur == GroupeSanguin.A_NEG || donneur == GroupeSanguin.O_NEG;
+            case B_POS:
+                return donneur == GroupeSanguin.B_POS || donneur == GroupeSanguin.B_NEG
+                        || donneur == GroupeSanguin.O_POS || donneur == GroupeSanguin.O_NEG;
+            case B_NEG:
+                return donneur == GroupeSanguin.B_NEG || donneur == GroupeSanguin.O_NEG;
+            case O_POS:
+                return donneur == GroupeSanguin.O_POS || donneur == GroupeSanguin.O_NEG;
+            case O_NEG:
+                return donneur == GroupeSanguin.O_NEG;
+            default:
+                return false;
+        }
     }
+
 
     public void associerDonneurReceveur(Donneur donneur, Receveur receveur) {
         if (estCompatible(donneur.getGroupeSanguin(), receveur.getGroupeSanguin())

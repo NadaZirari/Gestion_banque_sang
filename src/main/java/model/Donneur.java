@@ -44,9 +44,10 @@ public class Donneur {
     public Donneur() {}
 
     public void determinerEligibilite() {
-        int age = LocalDate.now().getYear() - dateNaissance.getYear();
-        if (age < 18 || age > 65 || poids < 50) {
+        if (isContreIndication()) {
             this.statut = StatutDisponibilite.NON_ELIGIBLE;
+        } else if (receveur != null) {
+            this.statut = StatutDisponibilite.NON_DISPONIBLE;
         } else {
             this.statut = StatutDisponibilite.DISPONIBLE;
         }
@@ -98,6 +99,7 @@ public class Donneur {
 
 	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
+		determinerEligibilite();
 	}
 
 	public double getPoids() {
@@ -106,6 +108,7 @@ public class Donneur {
 
 	public void setPoids(double poids) {
 		this.poids = poids;
+		determinerEligibilite();
 	}
 
 	public String getSexe() {
@@ -114,6 +117,7 @@ public class Donneur {
 
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
+		determinerEligibilite();
 	}
 
 	public GroupeSanguin getGroupeSanguin() {
@@ -159,6 +163,6 @@ public class Donneur {
 	        return false;
 	    }
 
-    
+}
     
 

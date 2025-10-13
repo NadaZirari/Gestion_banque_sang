@@ -4,5 +4,5 @@ public enum StatutReceveur {
 
 	
 	 EN_ATTENTE,
-	 TRAITE
+	 SATISFAIT,
 }
