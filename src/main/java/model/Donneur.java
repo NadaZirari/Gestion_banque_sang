@@ -124,8 +124,8 @@ public class Donneur {
 		return groupeSanguin;
 	}
 
-	public void setGroupeSanguin(GroupeSanguin groupeSanguin) {
-		this.groupeSanguin = groupeSanguin;
+	public void setGroupeSanguin(GroupeSanguin groupe) {
+		this.groupeSanguin = groupe;
 	}
 
 	public StatutDisponibilite getStatutDisponibilite() {

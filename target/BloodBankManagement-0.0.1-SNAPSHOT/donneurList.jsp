@@ -1,8 +1,8 @@
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-
-<%@ taglib prefix="fmt" uri="http://jakarta.ee/jstl/fmt" %>
-
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +24,7 @@
             <td>${donneur.nom}</td>
             <td>${donneur.prenom}</td>
             <td>${donneur.groupeSanguin}</td>
+            
         </tr>
     </c:forEach>
 </table>

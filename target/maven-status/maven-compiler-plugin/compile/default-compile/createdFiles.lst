@@ -1,4 +1,5 @@
 service\MatchingService.class
+controller\AjouterDonneurServlet.class
 controller\ReceveurServlet.class
 service\ReceveurService.class
 dao\ReceveurDao.class

@@ -24,6 +24,7 @@
             <td>${donneur.nom}</td>
             <td>${donneur.prenom}</td>
             <td>${donneur.groupeSanguin}</td>
+            
         </tr>
     </c:forEach>
 </table>
