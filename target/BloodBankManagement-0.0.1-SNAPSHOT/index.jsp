@@ -5,6 +5,6 @@
     <title>Blood Bank Management</title>
 </head>
 <body>
-    <h1>Tomcat fonctionne pour BloodBankManagement yeeeeess !</h1>
+    <h1>Tomcat fonctionne pour BloodBankManagement !</h1>
 </body>
 </html>

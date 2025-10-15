@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.Period;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "donneurs")

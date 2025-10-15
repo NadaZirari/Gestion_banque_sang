@@ -1,7 +1,8 @@
 package model;
 import java.util.stream.Collectors;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 import service.MatchingService;
 
