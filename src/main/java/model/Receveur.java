@@ -158,6 +158,7 @@ public class Receveur {
 	}
     
 
+/*
 	private MatchingService matchingService = new MatchingService();
 
 	public List<Donneur> getDonneursAssocies() {
@@ -166,9 +167,10 @@ public class Receveur {
 	            .filter(d -> !d.isContreIndication())
 	            .filter(d -> matchingService.estCompatible(d.getGroupeSanguin(), this.groupeSanguin))
 	            .collect(Collectors.toList());
-	}
-
 
 
    }
+	
+*/
+}
 

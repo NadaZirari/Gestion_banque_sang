@@ -11,6 +11,7 @@ public class MatchingService {
     private DonneurDaoImpl donneurDao = new DonneurDaoImpl();
     private ReceveurDaoImpl receveurDao = new ReceveurDaoImpl();
 
+	
     public List<Donneur> trouverDonneursCompatibles(Receveur receveur) {
         return donneurDao.findAll().stream()
                 .filter(d -> d.getStatutDisponibilite() == StatutDisponibilite.DISPONIBLE)
@@ -43,18 +44,36 @@ public class MatchingService {
                 return false;
         }
     }
+    /*
+	private MatchingService matchingService = new MatchingService();
 
-
+	public List<Donneur> getDonneursAssocies() {
+	    if (donneurs == null) return java.util.Collections.emptyList();
+	    return donneurs.stream()
+	            .filter(d -> !d.isContreIndication())
+	            .filter(d -> matchingService.estCompatible(d.getGroupeSanguin(), this.groupeSanguin))
+	            .collect(Collectors.toList());
+	}
+*/
+    
+    
+    
     public void associerDonneurReceveur(Donneur donneur, Receveur receveur) {
         if (estCompatible(donneur.getGroupeSanguin(), receveur.getGroupeSanguin())
                 && donneur.getStatutDisponibilite() == StatutDisponibilite.DISPONIBLE) {
 
+            // Mettre à jour le statut du donneur
             donneur.setStatutDisponibilite(StatutDisponibilite.NON_DISPONIBLE);
             donneur.setReceveur(receveur);
             donneurDao.update(donneur);
 
-            receveur.getDonneursAssocies().add(donneur);
+            // Ajouter le donneur au receveur
+            List<Donneur> donneursReceveur = receveur.getDonneurs();
+            donneursReceveur.add(donneur);
+            receveur.setDonneurs(donneursReceveur);
+
             receveurDao.update(receveur);
         }
     }
+    
 }

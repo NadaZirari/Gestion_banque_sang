@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
+
+
 <html>
-<head>
-    <title>Blood Bank Management</title>
-</head>
+<head><title>BloodBank Management</title></head>
 <body>
-    <h1>Tomcat fonctionne pour BloodBankManagement yeeeeess !</h1>
+<h1>Bienvenue au Système de Gestion de Banque de Sang</h1>
+<ul>
+    <li><a href="donneurs">Gestion des Donneurs</a></li>
+    <li><a href="receveurs">Gestion des Receveurs</a></li>
+</ul>
 </body>
 </html>

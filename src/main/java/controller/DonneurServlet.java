@@ -2,7 +2,6 @@ package controller;
 
 
 
-
 import dao.DonneurDao;
 import impl.DonneurDaoImpl;
 import model.Donneur;
@@ -45,7 +44,7 @@ public class DonneurServlet extends HttpServlet {
             default:
                 List<Donneur> donneurs = donneurDao.findAll();
                 request.setAttribute("donneurs", donneurs);
-                request.getRequestDispatcher("/donneur-list.jsp").forward(request, response);
+                request.getRequestDispatcher("/donneurList.jsp").forward(request, response);
                 break;
         }
     }

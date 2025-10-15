@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ReceveurDaoImpl implements ReceveurDao {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("bloodbankPU");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("BloodbankPU");
     private EntityManager em = emf.createEntityManager();
 
     @Override
