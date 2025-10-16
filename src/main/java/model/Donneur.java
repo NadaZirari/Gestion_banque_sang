@@ -93,14 +93,10 @@ public class Donneur {
 		this.telephone = telephone;
 	}
 
-	public LocalDate getDateNaissance() {
-		return dateNaissance;
-	}
-
-	public void setDateNaissance(LocalDate dateNaissance) {
-		this.dateNaissance = dateNaissance;
-		determinerEligibilite();
-	}
+	
+	
+	public LocalDate getDateNaissance() { return dateNaissance; }
+    public void setDateNaissance(LocalDate dateNaissance) { this.dateNaissance = dateNaissance; }
 
 	public double getPoids() {
 		return poids;
@@ -143,6 +139,15 @@ public class Donneur {
 	public void setReceveur(Receveur receveur) {
 		this.receveur = receveur;
 	}
+	
+	
+	
+	 public int getAge() {
+	        if (dateNaissance == null) return 0;
+	        return Period.between(dateNaissance, LocalDate.now()).getYears();
+	    }
+	 
+	 
 
 	 public boolean isContreIndication() {
 	        

@@ -7,6 +7,7 @@ controller\DonneurServlet.class
 model\GroupeSanguin.class
 impl\ReceveurDaoImpl.class
 model\Receveur$Priorite.class
+model\GroupeSanguin$1.class
 service\DonneurService.class
 impl\DonneurDaoImpl.class
 controller\MatchingServlet.class
