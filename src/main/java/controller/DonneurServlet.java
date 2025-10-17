@@ -9,11 +9,14 @@ import impl.DonneurDaoImpl;
 import model.Donneur;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet; // <-- NOUVEL IMPORT
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.util.List;
 
+// TEMPORAIRE : On ajoute l'annotation pour bypasser le web.xml et tester si la classe est atteignable.
+@WebServlet("/donneurs")
 public class DonneurServlet extends HttpServlet {
 
     private DonneurDao donneurDao = new DonneurDaoImpl();
@@ -111,4 +114,5 @@ public class DonneurServlet extends HttpServlet {
             donneurDao.update(donneur);
         }
 
-        response.sendRedirect("donneurs");}}
+        response.sendRedirect("donneurs");}
+}

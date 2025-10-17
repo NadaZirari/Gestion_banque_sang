@@ -53,7 +53,7 @@ public class ReceveurDaoImpl implements ReceveurDao {
     @Override
     public List<Receveur> findByPriorite() {
         return em.createQuery(
-                "SELECT r FROM Receveur r ORDER BY r.situationMedicale DESC",
+                "SELECT r FROM Receveur r ORDER BY r.priorite DESC",
                 Receveur.class).getResultList();
     }
 }

@@ -1,13 +1,18 @@
 package controller;
 
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-import model.Receveur;
 import model.GroupeSanguin;
+import model.Receveur;
 import service.ReceveurService;
+
+
+
+@WebServlet("/receveurs")
 
 public class ReceveurServlet extends HttpServlet {
 
