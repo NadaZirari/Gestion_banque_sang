@@ -20,7 +20,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DonneurServlet</servlet-name>
-        <url-pattern>/ hgytfxc </url-pattern>
+        <url-pattern>/donneurs</url-pattern>
     </servlet-mapping>
 
     <!-- Servlet : Ajouter un donneur -->
@@ -42,5 +42,15 @@
         <servlet-name>ReceveurServlet</servlet-name>
         <url-pattern>/receveurs</url-pattern>
     </servlet-mapping>
+
+
+<servlet>
+    <servlet-name>AssocierDonneurReceveurServlet</servlet-name>
+    <servlet-class>controller.AssocierDonneurReceveurServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AssocierDonneurReceveurServlet</servlet-name>
+    <url-pattern>/associer</url-pattern>
+</servlet-mapping>
 
 </web-app>

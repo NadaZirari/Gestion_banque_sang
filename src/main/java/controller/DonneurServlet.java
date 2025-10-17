@@ -2,6 +2,7 @@ package controller;
 
 import java.time.LocalDate;
 import model.GroupeSanguin;
+import java.util.List;
 
 
 import dao.DonneurDao;
@@ -13,7 +14,6 @@ import jakarta.servlet.annotation.WebServlet; // <-- NOUVEL IMPORT
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-import java.util.List;
 
 // TEMPORAIRE : On ajoute l'annotation pour bypasser le web.xml et tester si la classe est atteignable.
 @WebServlet("/donneurs")

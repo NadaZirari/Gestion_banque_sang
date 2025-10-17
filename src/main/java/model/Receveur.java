@@ -75,6 +75,10 @@ public class Receveur {
         }
     }
 
+    
+    @OneToMany(mappedBy="receveur")
+    private List<Donneur> donneursAssocies;
+
 
 	public Long getId() {
 		return id;
@@ -155,6 +159,10 @@ public class Receveur {
 
 	public void setDonneurs(List<Donneur> donneurs) {
 		this.donneurs = donneurs;
+	}
+	public Object getDonneursAssocies() {
+		// TODO Auto-generated method stub
+		return null;
 	}
     
 

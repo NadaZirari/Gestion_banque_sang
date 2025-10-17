@@ -12,7 +12,9 @@ public class ReceveurDaoImpl implements ReceveurDao {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("BloodbankPU");
     private EntityManager em = emf.createEntityManager();
-
+    private EntityManager getEm() {
+        return emf.createEntityManager();
+    }
     @Override
     public void save(Receveur receveur) {
         EntityTransaction tx = em.getTransaction();
@@ -56,4 +58,21 @@ public class ReceveurDaoImpl implements ReceveurDao {
                 "SELECT r FROM Receveur r ORDER BY r.priorite DESC",
                 Receveur.class).getResultList();
     }
+    
+    
+    @Override
+    public List<Receveur> findNonSatisfaits() {
+        EntityManager em = getEm();
+        try {
+            return em.createQuery(
+                "SELECT r FROM Receveur r WHERE r.etat != :etat",
+                Receveur.class
+            )
+            .setParameter("etat", model.StatutReceveur.SATISFAIT)
+            .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 }

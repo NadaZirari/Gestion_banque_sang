@@ -11,5 +11,7 @@ public interface ReceveurDao {
     void delete(Long id);
     void update(Receveur receveur);
     List<Receveur> findByPriorite();
+    List<Receveur> findNonSatisfaits();
+
 }
 

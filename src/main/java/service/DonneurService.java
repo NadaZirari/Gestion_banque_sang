@@ -26,6 +26,11 @@ public class DonneurService {
     public List<Donneur> listerDonneurs() {
         return donneurDao.findAll();
     }
+    
+
+    public List<Donneur> listerDisponibles() {
+        return donneurDao.findAvailable();
+    }
 
     public void supprimerDonneur(Long id) {
         donneurDao.delete(id);
@@ -47,4 +52,18 @@ public class DonneurService {
     public List<Donneur> donneursDisponiblesParGroupe(String groupe) {
         return donneurDao.findAvailableByBloodGroup(groupe);
     }
+    
+    public void majStatut(Donneur donneur) {
+        if (donneur.isContreIndication()) {
+            donneur.setStatutDisponibilite(StatutDisponibilite.NON_ELIGIBLE);
+        } else if (donneur.getReceveur() != null) {
+            donneur.setStatutDisponibilite(StatutDisponibilite.NON_DISPONIBLE);
+        } else {
+            donneur.setStatutDisponibilite(StatutDisponibilite.DISPONIBLE);
+        }
+
+        // Mettre à jour en base
+        donneurDao.update(donneur);
+    }
+
 }
