@@ -6,15 +6,12 @@ import impl.DonneurDaoImpl;
 import model.Donneur;
 import model.GroupeSanguin;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Period;
 
-@WebServlet("/ajouter-donneur")
 public class AjouterDonneurServlet extends HttpServlet {
 
     private DonneurDao donneurDao = new DonneurDaoImpl();
@@ -81,4 +78,4 @@ public class AjouterDonneurServlet extends HttpServlet {
 
         // Redirection vers la liste
         response.sendRedirect(request.getContextPath() + "/donneurs");
-}}}
+}}

@@ -1,6 +1,5 @@
 package dao;
 
-
 import model.Receveur;
 import java.util.List;
 

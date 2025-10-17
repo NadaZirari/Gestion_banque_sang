@@ -9,13 +9,11 @@ import impl.DonneurDaoImpl;
 import model.Donneur;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/donneurs")
 public class DonneurServlet extends HttpServlet {
 
     private DonneurDao donneurDao = new DonneurDaoImpl();
@@ -23,32 +21,40 @@ public class DonneurServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String action = request.getParameter("action");
-        if (action == null) action = "list";
-
-        switch (action) {
-            case "new":
-                request.getRequestDispatcher("/donneur-form.jsp").forward(request, response);
-                break;
-            case "edit":
-                Long idEdit = Long.parseLong(request.getParameter("id"));
-                Donneur donneurEdit = donneurDao.findById(idEdit);
-                request.setAttribute("donneur", donneurEdit);
-                request.getRequestDispatcher("/donneur-form.jsp").forward(request, response);
-                break;
-            case "delete":
-                Long idDelete = Long.parseLong(request.getParameter("id"));
-                donneurDao.delete(idDelete);
-                response.sendRedirect("donneurs");
-                break;
-            case "list":
-            default:
-                List<Donneur> donneurs = donneurDao.findAll();
-                request.setAttribute("donneurs", donneurs);
-                request.getRequestDispatcher("/donneurList.jsp").forward(request, response);
-                break;
-        }}
+        System.out.println("DonneurServlet appelée à " + new java.util.Date());
+        try {
+            String action = request.getParameter("action");
+            if (action == null) action = "list";
+            switch (action) {
+                case "new":
+                    request.getRequestDispatcher("/donneur-form.jsp").forward(request, response);
+                    break;
+                case "edit":
+                    Long idEdit = Long.parseLong(request.getParameter("id"));
+                    Donneur donneurEdit = donneurDao.findById(idEdit);
+                    request.setAttribute("donneur", donneurEdit);
+                    request.getRequestDispatcher("/donneur-form.jsp").forward(request, response);
+                    break;
+                case "delete":
+                    Long idDelete = Long.parseLong(request.getParameter("id"));
+                    donneurDao.delete(idDelete);
+                    response.sendRedirect("donneurs");
+                    break;
+                case "list":
+                default:
+                    System.out.println("Avant findAll à " + new java.util.Date());
+                    List<Donneur> donneurs = donneurDao.findAll();
+                    System.out.println("Après findAll, taille : " + (donneurs != null ? donneurs.size() : "null"));
+                    request.setAttribute("donneurs", donneurs);
+                    request.getRequestDispatcher("/donneurList.jsp").forward(request, response);
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur dans doGet à " + new java.util.Date() + ": " + e.getMessage());
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erreur serveur: " + e.getMessage());
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

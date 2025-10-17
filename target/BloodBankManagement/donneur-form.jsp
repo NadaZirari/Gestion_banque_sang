@@ -123,16 +123,7 @@
         }
     </style>
 
-    <script>
-        function verifierConditions() {
-            const minChecks = document.querySelectorAll('.cond:checked').length;
-            if (minChecks < 1) {
-                alert("⚠️ Cochez au moins la confirmation d'âge/poids.");
-                return false;
-            }
-            return true;
-        }
-    </script>
+   
 </head>
 <body>
 

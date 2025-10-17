@@ -7,7 +7,8 @@
 <body>
 <h1>Bienvenue au Système de Gestion de Banque de Sang</h1>
 <ul>
-    <li><a href="donneurs">Gestion des Donneurs</a></li>
+    <li><a href="${pageContext.request.contextPath}/donneurs">Gestion des Donneurs</a>
+    </li>
     <li><a href="receveurs">Gestion des Receveurs</a></li>
 </ul>
 </body>

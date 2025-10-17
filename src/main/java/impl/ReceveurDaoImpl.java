@@ -32,7 +32,7 @@ public class ReceveurDaoImpl implements ReceveurDao {
     }
 
     @Override
-    public void update(Receveur receveur) {
+    public void update (Receveur receveur) {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         em.merge(receveur);

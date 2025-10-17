@@ -8,43 +8,39 @@
     <!-- Nom de l'application -->
     <display-name>BloodBankManagement</display-name>
 
-    <!-- Page d'accueil par défaut -->
+    <!-- Page d'accueil -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- Exemple de servlet pour Donneur -->
+    <!-- Servlet : Liste des donneurs -->
     <servlet>
         <servlet-name>DonneurServlet</servlet-name>
-        <servlet-class>com.bloodbank.servlets.DonneurServlet</servlet-class>
+        <servlet-class>controller.DonneurServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>DonneurServlet</servlet-name>
-        <url-pattern>/donneur</url-pattern>
+        <url-pattern>/donneurs</url-pattern>
     </servlet-mapping>
 
-    <!-- Exemple de servlet pour Receveur -->
+    <!-- Servlet : Ajouter un donneur -->
+    <servlet>
+        <servlet-name>AjouterDonneurServlet</servlet-name>
+        <servlet-class>controller.AjouterDonneurServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjouterDonneurServlet</servlet-name>
+        <url-pattern>/ajouter-donneur</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet : Receveur -->
     <servlet>
         <servlet-name>ReceveurServlet</servlet-name>
-        <servlet-class>com.bloodbank.servlets.ReceveurServlet</servlet-class>
+        <servlet-class>controller.ReceveurServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>ReceveurServlet</servlet-name>
-        <url-pattern>/receveur</url-pattern>
+        <url-pattern>/receveurs</url-pattern>
     </servlet-mapping>
-
-    <!-- Optionnel : filtre exemple -->
-    <!--
-    <filter>
-        <filter-name>ExampleFilter</filter-name>
-        <filter-class>com.bloodbank.filters.ExampleFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>ExampleFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    -->
 
 </web-app>
