@@ -27,4 +27,23 @@
         
         
     </persistence-unit>
+
+    <!-- Backward-compatible PU name (lowercase 'b') to match older code -->
+    <persistence-unit name="bloodbankPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>model.Donneur</class>
+        <class>model.Receveur</class>
+
+        <properties>
+           <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bloodbankdb"/>
+           <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+           <property name="jakarta.persistence.jdbc.password" value="nada123"/>
+           <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+           <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+           <property name="hibernate.hbm2ddl.auto" value="update"/>
+           <property name="hibernate.show_sql" value="true"/>
+           <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>
