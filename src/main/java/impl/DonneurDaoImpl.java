@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DonneurDaoImpl implements DonneurDao {
 
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("BloodbankPU");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("bloodbankPU");
 
     private EntityManager getEm() {
         return emf.createEntityManager();
